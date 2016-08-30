@@ -1,5 +1,5 @@
 # Nolearn MNIST example
-You can run the tiny example `simple_mnist.py` if you first time to contact it:
+You can run the tiny example `simple_mnist.py` if you are first time to contact it:
 
 ```
 $ python simple_mnist.py
