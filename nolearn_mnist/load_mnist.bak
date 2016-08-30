@@ -1,0 +1,50 @@
+#Source: http://nbviewer.jupyter.org/github/dnouri/nolearn/blob/master/docs/notebooks/CNN_tutorial.ipynb
+###WRONG FILE@
+import os
+import matplotlib.pyplot as plt
+import numpy as np
+
+def load_mnist(path):
+	X = []
+	y = []
+	with open(path, 'rb') as f:
+#		next(f)  # skip header
+		for line in f:
+			yi, xi = line.split(',', 1)
+			y.append(yi)
+			X.append(xi.split(','))
+
+	# Theano works with f[32 precision
+	X = np.array(X).astype(np.float32)
+	y = np.array(y).astype(np.int32)
+	print X.shape
+	print y.shape
+	# apply some very simple normalization to the data
+
+	X -= X.mean()
+	X /= X.std()
+	
+	# For convolutional layers, the default shape of data is bc01,
+	# i.e. batch size x color channels x image dimension 1 x image dimension 2.
+	# Therefore, we reshape the X data to -1, 1, 28, 28.
+	X = X.reshape(
+		-1,  # number of samples, -1 makes it so that this number is determined automatically
+		1,   # 1 color channel, since images are only black and white
+		28,  # first image dimension (vertical)
+		28,  # second image dimension (horizontal)
+	)
+	print X.shape
+	print y.shape
+	return X, y
+
+if __name__ == '__main__':
+	path_train = os.path.join(os.path.expanduser('~'), 'data/mnist/train.csv')
+	path_test = os.path.join(os.path.expanduser('~'), 'data/mnist/test.csv')
+	
+#	X, y = load_mnist(path_train)
+	X_test, y_test = load_mnist(path_test)
+	
+#	print "X_train.shape: ", X.shape
+#	print "y_train.shape: ", y.shape
+	print "X_test.shape: ", X_test.shape
+	print "y_test.shape: ", y_test.shape

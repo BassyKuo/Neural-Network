@@ -1,0 +1,77 @@
+# layer dealing with the input data
+(InputLayer, {'shape': (None, X.shape[1], X.shape[2], X.shape[3])}),
+
+# first stage of our convolutional layers
+(Conv2DLayer, {'num_filters': 96, 'filter_size': 5}),
+(Conv2DLayer, {'num_filters': 96, 'filter_size': 3}),
+(Conv2DLayer, {'num_filters': 96, 'filter_size': 3}),
+(Conv2DLayer, {'num_filters': 96, 'filter_size': 3}),
+(Conv2DLayer, {'num_filters': 96, 'filter_size': 3}),
+(MaxPool2DLayer, {'pool_size': 2}),
+
+# second stage of our convolutional layers
+(Conv2DLayer, {'num_filters': 128, 'filter_size': 3}),
+(Conv2DLayer, {'num_filters': 128, 'filter_size': 3}),
+(Conv2DLayer, {'num_filters': 128, 'filter_size': 3}),
+(MaxPool2DLayer, {'pool_size': 2}),
+
+# two dense layers with dropout
+(DenseLayer, {'num_units': 64}),
+(DropoutLayer, {}),
+(DenseLayer, {'num_units': 64}),
+
+# the output layer
+(DenseLayer, {'num_units': 10, 'nonlinearity': softmax}),
+
+
+ = NeuralNet(
+layers=layers0,
+max_epochs=10,
+
+update=adam,
+update_learning_rate=0.0002,
+
+objective_l2=0.0025,
+
+train_split=TrainSplit(eval_size=0.25),
+verbose=1,
+
+
+
+Using gpu device 1: GeForce GTX 1080 (CNMeM is enabled with initial size: 30.0% of memory, cuDNN 5005)
+/home/bass/.local/lib/python2.7/site-packages/theano/tensor/signal/downsample.py:6: UserWarning: downsample module has been moved to the theano.tensor.signal.pool module.
+  "downsample module has been moved to the theano.tensor.signal.pool module.")
+# Neural Network with 753610 learnable parameters
+
+## Layer information
+
+  #  name         size
+---  -----------  --------
+  0  input0       1x28x28
+  1  conv2d1      96x24x24
+  2  conv2d2      96x22x22
+  3  conv2d3      96x20x20
+  4  conv2d4      96x18x18
+  5  conv2d5      96x16x16
+  6  maxpool2d6   96x8x8
+  7  conv2d7      128x6x6
+  8  conv2d8      128x4x4
+  9  conv2d9      128x2x2
+ 10  maxpool2d10  128x1x1
+ 11  dense11      64
+ 12  dropout12    64
+ 13  dense13      64
+ 14  dense14      10
+
+  epoch    trn loss    val loss    trn/val    valid acc  dur
+-------  ----------  ----------  ---------  -----------  ------
+      1     [36m2.47793[0m     [32m1.39084[0m    1.78161      0.92450  10.29s
+      2     [36m1.38453[0m     [32m1.10615[0m    1.25166      0.95763  10.33s
+      3     [36m1.12551[0m     [32m0.95991[0m    1.17252      0.96896  10.38s
+      4     [36m0.97041[0m     [32m0.87177[0m    1.11314      0.97182  10.45s
+      5     [36m0.87753[0m     [32m0.79630[0m    1.10200      0.97582  10.48s
+      6     [36m0.79732[0m     [32m0.71675[0m    1.11240      0.98105  10.51s
+      7     [36m0.72283[0m     [32m0.67004[0m    1.07880      0.98115  10.57s
+      8     [36m0.66969[0m     [32m0.62312[0m    1.07473      0.98248  10.58s
+      9     [36m0.62233[0m     [32m0.57651[0m    1.07948      0.98277  10.62s
+     10     [36m0.57515[0m     [32m0.55647[0m    1.03356      0.97924  10.64s
