@@ -1,0 +1,16 @@
+#!/bin/bash
+# Easy installation on Ubuntu 14.04 server
+
+### Requirements ###
+cd
+sudo apt-get update
+sudo apt-get install -y python-numpy
+if [ $? -eq 100 ]; then 
+  sudo mv /var/cache/apt/archives/lock /var/cache/apt/archives/lock_bak
+    sudo apt-get install -y python-numpy
+	fi
+	sudo apt-get install -y cython python-matplotlib ipython ipython-notebook python-pandas python-sympy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git libblas-dev liblapack-dev libatlas-base-dev gfortran libjpeg8-dev libfreetype6-dev libpng12-dev pkg-config
+
+sudo pip install --upgrade pip
+echo "alias pip=\'pip2\'" >> ~/.bashrc
+source ~/.bashrc
