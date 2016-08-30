@@ -11,3 +11,6 @@ if [ $? -eq 100 ]; then
 	fi
 	sudo apt-get install -y cython python-matplotlib ipython ipython-notebook python-pandas python-sympy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git libblas-dev liblapack-dev libatlas-base-dev gfortran libjpeg8-dev libfreetype6-dev libpng12-dev pkg-config
 
+sudo pip install --upgrade pip
+echo "alias pip=\'pip2\'" >> ~/.bashrc
+source ~/.bashrc
