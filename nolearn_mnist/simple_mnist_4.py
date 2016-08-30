@@ -33,42 +33,53 @@ X, y, X_test, y_test = load_mnist_set()
 #		axes[i, j].set_title("Label: {}".format(y[i + 4 * j]))
 #		axes[i, j].axis('off')
 
-layers1 = [
-	(InputLayer, {'shape': (None, X.shape[1], X.shape[2], X.shape[3])}),
-	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3)}),
+# A good compromise:
+#	 a reasonably deep architecture that satisfies the criteria we set out to meet:
+layers4 = [
+    (InputLayer, {'shape': (None, X.shape[1], X.shape[2], X.shape[3])}),
+
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 32, 'filter_size': (3, 3), 'pad': 1}),
 	(MaxPool2DLayer, {'pool_size': (2, 2)}),
-	(Conv2DLayer, {'num_filters': 64, 'filter_size': (3, 3)}),
-	(Conv2DLayer, {'num_filters': 64, 'filter_size': (3, 3)}),
+
+	(Conv2DLayer, {'num_filters': 64, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 64, 'filter_size': (3, 3), 'pad': 1}),
+	(Conv2DLayer, {'num_filters': 64, 'filter_size': (3, 3), 'pad': 1}),
 	(MaxPool2DLayer, {'pool_size': (2, 2)}),
-	(Conv2DLayer, {'num_filters': 96, 'filter_size': (3, 3)}),
-	(MaxPool2DLayer, {'pool_size': (2, 2)}),
+
 	(DenseLayer, {'num_units': 64}),
 	(DropoutLayer, {}),
 	(DenseLayer, {'num_units': 64}),
+
 	(DenseLayer, {'num_units': 10, 'nonlinearity': softmax}),
 ]
 
-net1 = NeuralNet(
+net4 = NeuralNet(
 	layers=layers1,
 	max_epochs=10,
 	update_learning_rate=0.01,
-	verbose=2,	# set verbose=2 and net.initialize to see information about the `capacity and `coverage of each layer
+	verbose=2,
 )
 
 # Show more information
-net1.initialize()
+net4.initialize()
 layer_info = PrintLayerInfo()
-layer_info(net1)
+layer_info(net4)
 
 # train the net 
-net1.fit(X, y)
+net4.fit(X, y)
 
 # test
 print "Start to test....."
-y_pred = net1.predict(X_test)
+y_pred = net4.predict(X_test)
 print "The accuracy of this network is: %0.2f" % (y_pred == y_test).mean()
 
 # store the network module
 import cPickle as pickle
-with open('results/simple_net1.pickle','wb') as f:
-	pickle.dump(net1, f, -1)
+with open('results/simple_net4.pickle','wb') as f:
+	pickle.dump(net4, f, -1)

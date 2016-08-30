@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# Filename: mnist.py
 #Source: http://nbviewer.jupyter.org/github/dnouri/nolearn/blob/master/docs/notebooks/CNN_tutorial.ipynb
 import os
 import matplotlib.pyplot as plt
