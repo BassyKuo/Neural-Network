@@ -16,4 +16,13 @@ pip install --user -r ~/setup_nolearn_requirements.txt
 pip install --user git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.6a0.dev0.git
 pip install --upgrade --user theano
 
+if [ -e ~/.theano ]; then
+	touch ~/.theanorc
+	echo "[global]" >> ~/.theanorc
+	echo "floatX = float32" >> ~/.theanorc
+	echo "device = gpu1" >> ~/.theanorc
+	echo "[lib]" >> ~/.theanorc
+	echo "cnmem = 0.01" >> ~/.theanorc
+fi
 rm -rf ~/setup_nolearn_requirements.txt
+rm -rf ~/.theanorc
