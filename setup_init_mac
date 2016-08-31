@@ -1,0 +1,23 @@
+#!/bin/bash
+# Easy installation on Ubuntu 14.04 server
+
+### Requirements ###
+cd
+brew update
+brew install homebrew/python/numpy
+brew install homebrew/emacs/cython-mode
+brew install homebrew/python/matplotlib
+brew install homebrew/science/pandaseq
+brew install homebrew/python/scipy
+brew install homebrew/science/blast
+brew install homebrew/science/openblas
+brew install liblas
+brew install homebrew/dupes/lapack
+brew install homebrew/science/scalapack 
+brew install wget
+wget "https://bootstrap.pypa.io/get-pip.py"
+sudo python get-pip.py # `get-pip.py` will also install setuptools and wheel
+sudo pip install --upgrade pip
+sudo easy_install --upgrade six
+
+#sudo apt-get install -y cython python-matplotlib ipython ipython-notebook python-pandas python-sympy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git libblas-dev liblapack-dev libatlas-base-dev gfortran libjpeg8-dev libfreetype6-dev libpng12-dev pkg-config
