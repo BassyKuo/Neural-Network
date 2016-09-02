@@ -60,10 +60,10 @@ layers4 = [
 ]
 
 net4 = NeuralNet(
-	layers=layers1,
+	layers=layers4,
 	max_epochs=10,
 	update_learning_rate=0.01,
-	verbose=2,
+	verbose=3,
 )
 
 # Show more information

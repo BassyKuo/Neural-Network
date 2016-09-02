@@ -1,0 +1,58 @@
+INFO:__main__:... building the model
+rnn.py:408: UserWarning: The parameter 'updates' of theano.function() expects an OrderedDict, got <type 'dict'>. Using a standard dictionary here results in non-deterministic behavior. You should use an OrderedDict if you are using Python 2.7 (theano.compat.OrderedDict for older python), or use a list of (shared, update) pairs. Do not just convert your dictionary to this type before the call as the conversion will still be non-deterministic.
+  mode=mode)
+INFO:__main__:... training
+INFO:__main__:epoch 10, seq 100/100, train loss 0.865682 lr: 0.000991
+INFO:__main__:epoch 20, seq 100/100, train loss 0.865654 lr: 0.000981
+INFO:__main__:epoch 30, seq 100/100, train loss 0.865589 lr: 0.000971
+INFO:__main__:epoch 40, seq 100/100, train loss 0.865428 lr: 0.000962
+INFO:__main__:epoch 50, seq 100/100, train loss 0.864999 lr: 0.000952
+INFO:__main__:epoch 60, seq 100/100, train loss 0.863422 lr: 0.000943
+INFO:__main__:epoch 70, seq 100/100, train loss 0.831403 lr: 0.000933
+INFO:__main__:epoch 80, seq 100/100, train loss 0.569127 lr: 0.000924
+INFO:__main__:epoch 90, seq 100/100, train loss 0.567128 lr: 0.000915
+INFO:__main__:epoch 100, seq 100/100, train loss 0.565494 lr: 0.000906
+INFO:__main__:epoch 110, seq 100/100, train loss 0.562675 lr: 0.000897
+INFO:__main__:epoch 120, seq 100/100, train loss 0.520082 lr: 0.000888
+INFO:__main__:epoch 130, seq 100/100, train loss 0.279635 lr: 0.000879
+INFO:__main__:epoch 140, seq 100/100, train loss 0.274908 lr: 0.000870
+INFO:__main__:epoch 150, seq 100/100, train loss 0.272029 lr: 0.000862
+INFO:__main__:epoch 160, seq 100/100, train loss 0.270034 lr: 0.000853
+INFO:__main__:epoch 170, seq 100/100, train loss 0.268564 lr: 0.000844
+INFO:__main__:epoch 180, seq 100/100, train loss 0.267410 lr: 0.000836
+INFO:__main__:epoch 190, seq 100/100, train loss 0.266435 lr: 0.000828
+INFO:__main__:epoch 200, seq 100/100, train loss 0.265549 lr: 0.000819
+INFO:__main__:epoch 210, seq 100/100, train loss 0.264681 lr: 0.000811
+INFO:__main__:epoch 220, seq 100/100, train loss 0.263752 lr: 0.000803
+INFO:__main__:epoch 230, seq 100/100, train loss 0.262604 lr: 0.000795
+INFO:__main__:epoch 240, seq 100/100, train loss 0.260679 lr: 0.000787
+INFO:__main__:epoch 250, seq 100/100, train loss 0.254478 lr: 0.000779
+INFO:__main__:epoch 260, seq 100/100, train loss 0.203691 lr: 0.000772
+INFO:__main__:epoch 270, seq 100/100, train loss 0.130577 lr: 0.000764
+INFO:__main__:epoch 280, seq 100/100, train loss 0.033863 lr: 0.000756
+INFO:__main__:epoch 290, seq 100/100, train loss 0.018814 lr: 0.000749
+INFO:__main__:epoch 300, seq 100/100, train loss 0.014290 lr: 0.000741
+INFO:__main__:epoch 310, seq 100/100, train loss 0.011918 lr: 0.000734
+INFO:__main__:epoch 320, seq 100/100, train loss 0.010433 lr: 0.000727
+INFO:__main__:epoch 330, seq 100/100, train loss 0.009397 lr: 0.000720
+INFO:__main__:epoch 340, seq 100/100, train loss 0.008622 lr: 0.000712
+INFO:__main__:epoch 350, seq 100/100, train loss 0.008012 lr: 0.000705
+INFO:__main__:epoch 360, seq 100/100, train loss 0.007515 lr: 0.000698
+INFO:__main__:epoch 370, seq 100/100, train loss 0.007100 lr: 0.000691
+INFO:__main__:epoch 380, seq 100/100, train loss 0.006746 lr: 0.000684
+INFO:__main__:epoch 390, seq 100/100, train loss 0.006440 lr: 0.000678
+INFO:__main__:epoch 400, seq 100/100, train loss 0.006171 lr: 0.000671
+Traceback (most recent call last):
+  File "rnn.py", line 600, in <module>
+    test_real()
+  File "rnn.py", line 479, in test_real
+    fig = plt.figure()
+  File "/home/bass/.local/lib/python2.7/site-packages/matplotlib/pyplot.py", line 527, in figure
+    **kwargs)
+  File "/home/bass/.local/lib/python2.7/site-packages/matplotlib/backends/backend_tkagg.py", line 84, in new_figure_manager
+    return new_figure_manager_given_figure(num, figure)
+  File "/home/bass/.local/lib/python2.7/site-packages/matplotlib/backends/backend_tkagg.py", line 92, in new_figure_manager_given_figure
+    window = Tk.Tk()
+  File "/usr/lib/python2.7/lib-tk/Tkinter.py", line 1767, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+_tkinter.TclError: no display name and no $DISPLAY environment variable

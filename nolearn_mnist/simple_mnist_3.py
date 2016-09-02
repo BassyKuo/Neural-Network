@@ -58,7 +58,7 @@ layers3 = [
 	(DenseLayer, {'num_units': 10, 'nonlinearity': softmax}),
 ]
 net3 = NeuralNet(
-	layers=layers1,
+	layers=layers3,
 	max_epochs=10,
 	update_learning_rate=0.01,
 	verbose=2,
